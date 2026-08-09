@@ -11,6 +11,7 @@ export default function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("EMPLOYEE");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<ToastMsg | null>(null);
 
@@ -26,7 +27,7 @@ export default function Login() {
       const body =
         mode === "login"
           ? { email, password }
-          : { name, email, password };
+          : { name, email, password, role };
 
       const res = await fetch(`${API_URL}/api/auth/${mode}`, {
         method: "POST",
@@ -47,6 +48,7 @@ export default function Login() {
         setMode("login");
         setName("");
         setPassword("");
+        setRole("EMPLOYEE");
       }
     } catch {
       showToast("error", "Cannot reach server. Is the backend running?");
@@ -217,17 +219,31 @@ export default function Login() {
               </p>
 
               {mode === "register" && (
-                <div className="form-group">
-                  <label className="form-label">Full Name</label>
-                  <input
-                    type="text"
-                    className="form-input"
-                    placeholder="John Doe"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </div>
+                <>
+                  <div className="form-group">
+                    <label className="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      className="form-input"
+                      placeholder="John Doe"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Role</label>
+                    <select
+                      className="form-select"
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    >
+                      <option value="EMPLOYEE">👤 Employee</option>
+                      <option value="MANAGER">🧑‍💼 Manager</option>
+                      <option value="ADMIN">🛡 Admin</option>
+                    </select>
+                  </div>
+                </>
               )}
 
               <div className="form-group">
