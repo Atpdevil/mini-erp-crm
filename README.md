@@ -262,8 +262,8 @@ npx prisma generate
 npm run dev
 ```
 
-- Backend: `http://localhost:5000`
-- API: `http://localhost:5000/api`
+- Backend: `https://mini-erp-crm-izul.onrender.com`
+- API: `https://mini-erp-crm-izul.onrender.com/api`
 
 ### 5. Start the frontend
 
@@ -281,7 +281,7 @@ npm run dev
 
 ## 🔌 API Reference
 
-**Base URL:** `http://localhost:5000/api`
+**Base URL:** `https://mini-erp-crm-izul.onrender.com/api`
 
 Protected routes use:
 ```

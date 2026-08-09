@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://mini-erp-crm-izul.onrender.com";
 
 type DashboardData = {
   customers: number;
