@@ -1,66 +1,36 @@
 # Mini ERP CRM — Operations Portal
 
-> A full-stack Mini ERP + CRM Operations Portal built as part of the Full Stack Developer Case Study.
-> The application provides a unified workspace for managing authentication, customers, leads, products/inventory, orders, and dashboard business metrics.
+A full-stack ERP + CRM system for wholesale and distribution businesses,
+built to manage customers, leads, products, inventory, and orders from a
+single unified workspace.
+
+## 🌐 Live Demo
+
+**Frontend:**
+[https://mini-erp-crm-lime.vercel.app](https://mini-erp-crm-lime.vercel.app)
+
+**Backend API:**
+[https://mini-erp-crm-izul.onrender.com](https://mini-erp-crm-izul.onrender.com)
 
 ---
 
-## 🔗 Project Links
+## 📌 Overview
 
-| | |
-|---|---|
-| **GitHub** | [https://github.com/Atpdevil/mini-erp-crm](https://github.com/Atpdevil/mini-erp-crm) |
-| **Live Frontend** | [https://mini-erp-crm-lime.vercel.app](https://mini-erp-crm-lime.vercel.app) |
-| **Backend** | Included in this repository and configured for local execution |
-| **Database** | PostgreSQL, configured for local development |
+Mini ERP CRM is a full-stack business operations portal designed to centralize common ERP and CRM workflows.
 
-> The frontend is deployed on Vercel. The backend and PostgreSQL database are not separately hosted and can be run locally using the instructions below.
+The application provides a unified interface for:
 
----
+- Customer management
+- Lead management
+- Product management
+- Inventory management
+- Order management
+- Authentication and authorization
+- Role-based access
+- PostgreSQL database persistence
+- Production deployment
 
-## 📌 Project Overview
-
-The Mini ERP CRM is designed as an admin-style business operations portal for a wholesale/distribution workflow.
-
-### Main Modules
-
-| Module | Implemented Features |
-|---|---|
-| 🔐 **Authentication** | Register, login, JWT authentication |
-| 📊 **Dashboard** | Live customer, lead, product, order, pending-order and revenue statistics |
-| 👥 **Customers** | Add, edit, delete, search |
-| 🎯 **Leads** | Add, edit, delete, search, status pipeline |
-| 📦 **Products** | Add, edit, delete, search, SKU, price and stock |
-| 🛒 **Orders** | Create orders, add products, quantity handling, stock deduction, status management |
-| 🔒 **Security** | Password hashing, JWT authentication, validation and protected API routes |
-
----
-
-## 🛠 Tech Stack
-
-### Backend
-
-| Technology | Purpose |
-|---|---|
-| Node.js | Runtime |
-| TypeScript | Type-safe backend development |
-| Express.js | REST API framework |
-| Prisma ORM | Database access and migrations |
-| PostgreSQL | Relational database |
-| JWT | Authentication |
-| bcryptjs | Password hashing |
-| CORS | Cross-origin request handling |
-| dotenv | Environment variable management |
-| tsx | Development TypeScript runner |
-
-### Frontend
-
-| Technology | Purpose |
-|---|---|
-| React | UI development |
-| TypeScript | Type-safe frontend development |
-| Vite | Development server and build tool |
-| Vanilla CSS | Custom responsive UI and design system |
+The frontend is deployed on **Vercel**, while the backend and PostgreSQL database are hosted on **Render**.
 
 ---
 
@@ -70,154 +40,195 @@ The Mini ERP CRM is designed as an admin-style business operations portal for a 
 - User registration
 - User login
 - JWT-based authentication
-- Password hashing with bcrypt
-- Protected API requests
-- Token-based session handling
-
-### 📊 Dashboard
-
-The dashboard calculates and displays:
-- Total customers
-- Active leads
-- Total products
-- Total orders
-- Pending orders
-- Total revenue
-- Business-at-a-glance summary
-
-> Dashboard values update when customers, leads, products and orders are changed.
+- Password-based authentication
+- Protected application functionality
+- Role selection and role-based access
 
 ### 👥 Customer Management
-
-**Implemented:**
-- Add customer
-- Edit customer
-- Delete customer
-- Search customers
-
-**Customer data:** Name · Email · Phone · Company · Address
-
-Success/error notifications · Dashboard synchronization
+- Create and manage customers
+- View customer information
+- Update customer records
+- Delete customer records
+- Manage customer-related business information
 
 ### 🎯 Lead Management
+- Create and manage leads
+- Track lead information
+- Update lead records
+- Delete lead records
+- Support CRM-style lead management
 
-**Implemented:**
-- Add lead
-- Edit lead
-- Delete lead
-- Search leads
-- Lead source
-- Lead notes
-- Lead status
-- Status filtering/pipeline
-
-**Supported lead statuses:**
-
-`NEW` · `CONTACTED` · `QUALIFIED` · `WON` · `LOST`
-
-### 📦 Product & Inventory Management
-
-**Implemented:**
-- Add product
-- Edit product
-- Delete product
-- Search products
-- Unique SKU
-- Product description
-- Price
-- Stock quantity
-- In-stock display
-- Inventory updates after order creation
-
-### 🛒 Order Management
-
-**Implemented:**
-- Create order
-- Select customer
+### 📦 Product Management
 - Add products
-- Select quantity
-- Calculate order total
-- Deduct product stock
+- View products
+- Update product information
+- Delete products
+- Manage product details and pricing
+
+### 📊 Inventory Management
+- Track available stock
+- Manage inventory quantities
+- Connect inventory with products
+- Support operational stock management
+
+### 🧾 Order Management
+- Create orders
 - View orders
-- Search by order/customer
-- Filter by order status
-- Delete orders
-- Update order status
+- Manage order information
+- Connect orders with customers and products
+- Support basic order workflow
 
-**Supported order statuses:**
-
-`PENDING` · `CONFIRMED` · `SHIPPED` · `DELIVERED` · `CANCELLED`
-
-> Order items retain the product price at the time of the order.
+### 🛡️ Security
+- JWT authentication
+- Protected backend routes
+- Role-based access control
+- Password handling
+- Environment variables for secrets
+- Database credentials excluded from GitHub
 
 ---
 
-## 🗂 Project Structure
+## 🏗️ Technology Stack
+
+### Frontend
+- React
+- TypeScript
+- Vite
+- CSS
+
+### Backend
+- Node.js
+- Express
+- TypeScript
+- JWT
+
+### Database
+- PostgreSQL
+- Prisma ORM
+
+### Deployment
+- Vercel — Frontend
+- Render — Backend
+- Render PostgreSQL — Database
+
+### Version Control
+- Git
+- GitHub
+
+---
+
+## 📁 Project Structure
 
 ```
 mini-erp-crm/
 │
 ├── backend/
 │   ├── prisma/
-│   │   └── schema.prisma          # Prisma database schema
+│   │   └── schema.prisma
+│   │
 │   ├── src/
-│   │   ├── config/                # Application/database configuration
-│   │   ├── controllers/           # Request/business logic
-│   │   ├── generated/             # Generated source artifacts
-│   │   ├── middleware/            # Authentication/error middleware
-│   │   ├── routes/                # REST API routes
-│   │   ├── services/              # Service/business operations
-│   │   ├── utils/                 # Utility/helper functions
-│   │   └── server.ts              # Backend entry point
-│   ├── .env                       # Local secrets, not committed
-│   ├── .gitignore
-│   ├── package.json
-│   ├── package-lock.json
+│   │   └── ...
+│   │
 │   ├── prisma.config.ts
-│   └── tsconfig.json
+│   ├── tsconfig.json
+│   ├── package.json
+│   └── ...
 │
 ├── frontend/
-│   ├── dist/                      # Production build output
-│   ├── public/                    # Static assets
 │   ├── src/
-│   │   ├── assets/
-│   │   │   └── react.svg
-│   │   ├── App.css
-│   │   ├── App.tsx                # Main application layout
-│   │   ├── Customers.tsx          # Customer management
-│   │   ├── dashboard.tsx          # Dashboard
-│   │   ├── index.css              # Global styling
-│   │   ├── Leads.tsx              # Lead management
-│   │   ├── Login.tsx              # Login/register
-│   │   ├── main.tsx               # Frontend entry point
-│   │   ├── Orders.tsx             # Order management
-│   │   ├── Products.tsx           # Product management
-│   │   └── vite-env.d.ts
-│   ├── .gitignore
-│   ├── eslint.config.js
-│   ├── index.html
+│   │   ├── Customers.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── Leads.tsx
+│   │   ├── Login.tsx
+│   │   ├── Orders.tsx
+│   │   ├── Products.tsx
+│   │   └── ...
+│   │
 │   ├── package.json
-│   ├── package-lock.json
-│   ├── tsconfig.app.json
-│   ├── tsconfig.json
-│   ├── tsconfig.node.json
-│   └── vite.config.ts
+│   └── ...
 │
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
-> `node_modules`, local `.env` files and other generated/local-only files should not be committed to Git.
+> The structure above highlights the main application files. Additional generated and configuration files may exist inside the project.
 
 ---
 
-## 🚀 Local Setup
+## 🔄 Application Architecture
 
-### Prerequisites
+```
+┌───────────────────┐
+│       User        │
+└─────────┬─────────┘
+          │
+          ▼
+┌───────────────────┐
+│  Vercel Frontend  │
+│ React + TypeScript│
+└─────────┬─────────┘
+          │
+          │ HTTPS API
+          ▼
+┌───────────────────┐
+│  Render Backend   │
+│ Node.js + Express │
+└─────────┬─────────┘
+          │
+          │ Prisma
+          ▼
+┌───────────────────┐
+│ Render PostgreSQL │
+└───────────────────┘
+```
 
-- Node.js 20+
-- npm
-- PostgreSQL 15+
-- Git
+---
+
+## 🔗 Production API
+
+The deployed frontend communicates with the production backend:
+
+```
+https://mini-erp-crm-izul.onrender.com
+```
+
+The local development backend uses:
+
+```
+http://localhost:5000
+```
+
+> Production should never depend on localhost.
+
+---
+
+## ⚙️ Environment Variables
+
+Sensitive configuration is not committed to GitHub.
+
+### Backend
+
+Create a `.env` file inside `backend/` for local development:
+
+```env
+DATABASE_URL="your-postgresql-database-url"
+JWT_SECRET="your-jwt-secret"
+```
+
+### Production
+
+Production environment variables are configured through Render.
+
+Required backend variables:
+
+```
+DATABASE_URL
+JWT_SECRET
+```
+
+---
+
+## 🚀 Local Development
 
 ### 1. Clone the repository
 
@@ -233,39 +244,27 @@ cd backend
 npm install
 ```
 
-Create `backend/.env`:
-
-```env
-DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/mini_erp_crm"
-JWT_SECRET="your_long_random_secret"
-PORT=5000
-```
-
-### 3. Create the PostgreSQL database
-
-Create a PostgreSQL database named:
-
-```
-mini_erp_crm
-```
-
-Then run:
+Generate the Prisma client:
 
 ```bash
-npx prisma migrate dev
 npx prisma generate
 ```
 
-### 4. Start the backend
+Configure the required environment variables in `.env`.
+
+Start the backend:
 
 ```bash
 npm run dev
 ```
 
-- Backend: `https://mini-erp-crm-izul.onrender.com`
-- API: `https://mini-erp-crm-izul.onrender.com/api`
+The local backend runs on:
 
-### 5. Start the frontend
+```
+http://localhost:5000
+```
+
+### 3. Frontend setup
 
 Open another terminal:
 
@@ -275,277 +274,125 @@ npm install
 npm run dev
 ```
 
-- Frontend: `http://localhost:5173`
+Open the local frontend URL shown by Vite.
 
 ---
 
-## 🔌 API Reference
+## 🗄️ Database
 
-**Base URL:** `https://mini-erp-crm-izul.onrender.com/api`
+The project uses **PostgreSQL** with **Prisma ORM**.
 
-Protected routes use:
-```
-Authorization: Bearer <JWT_TOKEN>
-```
+Prisma is responsible for:
 
-### Authentication
+- Database schema management
+- Database access
+- Prisma Client generation
+- Application data operations
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/auth/register` | Register a user |
-| POST | `/auth/login` | Login and receive JWT |
-| GET | `/auth/me` | Get authenticated user |
-
-**Login request:**
-```json
-{ "email": "admin@example.com", "password": "password123" }
-```
-
-### Customers
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/customers` | List customers |
-| POST | `/customers` | Create customer |
-| GET | `/customers/:id` | Get customer |
-| PUT | `/customers/:id` | Update customer |
-| DELETE | `/customers/:id` | Delete customer |
-
-**Fields:** `name` · `email` · `phone` · `company` · `address`
-
-### Leads
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/leads` | List leads |
-| POST | `/leads` | Create lead |
-| GET | `/leads/:id` | Get lead |
-| PUT | `/leads/:id` | Update lead |
-| DELETE | `/leads/:id` | Delete lead |
-
-**Statuses:** `NEW` · `CONTACTED` · `QUALIFIED` · `WON` · `LOST`
-
-### Products
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/products` | List products |
-| POST | `/products` | Create product |
-| GET | `/products/:id` | Get product |
-| PUT | `/products/:id` | Update product |
-| DELETE | `/products/:id` | Delete product |
-
-**Fields:** `name` · `sku` · `description` · `price` · `stock`
-
-### Orders
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/orders` | List orders |
-| POST | `/orders` | Create order |
-| GET | `/orders/:id` | Get order |
-| PUT | `/orders/:id` | Update order status |
-| DELETE | `/orders/:id` | Delete order |
-
-**Example:**
-```json
-{
-  "customerId": 1,
-  "items": [
-    { "productId": 1, "quantity": 2 }
-  ]
-}
-```
-
-**Statuses:** `PENDING` · `CONFIRMED` · `SHIPPED` · `DELIVERED` · `CANCELLED`
-
-### Dashboard
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/dashboard` | Aggregated business statistics |
+The production database is hosted on **Render**.
 
 ---
 
-## 🏗 Architecture
+## 🔒 Security
 
-```
-┌──────────────────────┐
-│    React + Vite      │
-│      Frontend        │
-└──────────┬───────────┘
-           │
-      HTTP / REST
-           │
-           ▼
-┌──────────────────────┐
-│ Express + TypeScript │
-│       Backend        │
-└──────────┬───────────┘
-           │
-┌──────────▼───────────┐
-│ Controllers / Routes │
-│ Middleware / Services│
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│     Prisma ORM       │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│     PostgreSQL       │
-└──────────────────────┘
-```
+Security considerations implemented in the project include:
 
-### Key Design Decisions
-
-**JWT Authentication**
-JWT tokens are used for authenticated API requests.
-
-**Password Security**
-Passwords are hashed with bcryptjs.
-
-**Prisma**
-Prisma provides typed database access and schema/migration management.
-
-**Transactional Orders**
-Order creation uses a database transaction so order creation and stock deduction remain consistent.
-
-**Price Snapshot**
-Order items store the product price at order time, preserving historical order values.
-
-**Validation and Error Handling**
-Frontend and backend validation are used, with appropriate HTTP status codes and error responses.
+- JWT-based authentication
+- Protected backend functionality
+- Role-based access
+- Secure environment variable handling
+- Database credentials excluded from source control
+- `.env` files excluded through `.gitignore`
 
 ---
 
-## 🔐 Security
+## 🧪 Testing
 
-**Implemented:**
-- JWT authentication
-- Password hashing
-- Protected API routes
-- Authorization headers
-- Input validation
-- Error handling
-- Database constraints
-- Environment variables for secrets
-- `.env` excluded from Git
+The application was tested for the main production workflows, including:
 
-### Environment Variables
-
-| Variable | Purpose |
-|---|---|
-| `DATABASE_URL` | PostgreSQL connection |
-| `JWT_SECRET` | JWT signing secret |
-| `PORT` | Backend port |
-
-> Never commit real passwords, database credentials or JWT secrets to GitHub.
-
----
-
-## 🧪 Testing Completed
-
-**Customers**
-- Add · Edit · Delete · Search · Dashboard update
-
-**Leads**
-- Add · Edit · Delete · Search · Status filtering · Dashboard update
-
-**Products**
-- Add · Edit · Delete · Search · Inventory tracking
-
-**Orders**
-- Create order · Select customer · Add products · Quantity handling · Stock deduction · Search/filter · Status handling · Delete order · Dashboard update
-
-**Security**
-- Authentication flow · Protected requests · Input validation · Error handling · Environment secrets kept outside Git
-
----
-
-## 🌐 Deployment
-
-### Frontend
-
-Deployed using Vercel.
-
-**Live application:** [https://mini-erp-crm-lime.vercel.app](https://mini-erp-crm-lime.vercel.app)
-
-### Backend and Database
-
-The backend and PostgreSQL database are included in the repository and configured for local execution. They are not separately hosted as public services.
-
-**Local architecture:**
-```
-React/Vite
-    ↓
-Express/Node.js
-    ↓
-Prisma
-    ↓
-PostgreSQL
-```
-
----
-
-## ⚠️ Known Limitations
-
-The following broader case-study features are outside the implemented scope:
-
-- No separate public backend deployment
-- No separate public PostgreSQL deployment
-- No product image upload
-- No invoice PDF generation
-- No Docker configuration
-- No GitHub Actions CI/CD pipeline
-- No dedicated stock movement history screen
-- No separate sales challan/invoice workflow
-- Customer fields are limited to the fields implemented in the current UI
-- Pagination is not implemented for the current lists
-
-> These limitations were kept within the scope and time constraints of the case study.
-
----
-
-## 📹 Demonstration
-
-The project demonstration covers:
-
+- User registration
+- User login
 - Authentication
-- Dashboard
 - Customer management
 - Lead management
 - Product management
-- Order creation
-- Inventory update
-- Dashboard synchronization
-- Deployed frontend
+- Inventory management
+- Order management
+- Protected functionality
+- Backend connectivity
+- Database connectivity
+- Production deployment
 
 ---
 
-## 📋 Submission Information
+## ☁️ Deployment
 
-| | |
-|---|---|
-| **GitHub Repository** | [https://github.com/Atpdevil/mini-erp-crm](https://github.com/Atpdevil/mini-erp-crm) |
-| **Live Frontend** | [https://mini-erp-crm-lime.vercel.app](https://mini-erp-crm-lime.vercel.app) |
-| **Backend** | Backend source and local setup are included in this repository |
-| **Database** | PostgreSQL configuration and Prisma schema are included in the backend |
+### Frontend — Vercel
 
-### Documentation
+The React frontend is deployed through Vercel.
 
-This README includes:
-- Setup instructions
-- Folder structure
-- API reference
-- Architecture
-- Environment variables
-- Security information
-- Testing status
-- Deployment information
-- Known limitations
+Live frontend:
+[https://mini-erp-crm-lime.vercel.app](https://mini-erp-crm-lime.vercel.app)
+
+### Backend — Render
+
+The Node.js backend is deployed through Render.
+
+Live backend:
+[https://mini-erp-crm-izul.onrender.com](https://mini-erp-crm-izul.onrender.com)
+
+### Database — Render PostgreSQL
+
+The production PostgreSQL database is hosted on Render and connected to the backend using:
+
+```
+DATABASE_URL
+```
+
+---
+
+## 🔁 Deployment Flow
+
+```
+GitHub
+│
+├──────────────► Vercel
+│                  │
+│                  ▼
+│               Frontend
+│
+└──────────────► Render
+                   │
+                   ▼
+                Backend
+                   │
+                   ▼
+               PostgreSQL
+```
+
+---
+
+## 📋 Production Checklist
+
+Before submitting or demonstrating the project:
+
+- [x] Final application testing completed
+- [x] Security testing completed
+- [x] README documentation completed
+- [x] GitHub repository created
+- [x] Frontend deployed
+- [x] Backend deployed
+- [x] PostgreSQL database deployed
+- [x] Production backend connected
+- [x] Environment variables configured
+- [x] Production API connectivity verified
+
+---
+
+## 📦 Repository
+
+GitHub:
+[https://github.com/Atpdevil/mini-erp-crm](https://github.com/Atpdevil/mini-erp-crm)
 
 ---
 
@@ -553,4 +400,4 @@ This README includes:
 
 **Mini ERP CRM — Operations Portal**
 
-Built as part of the Full Stack Developer Case Study.
+Built as a full-stack developer case study for managing business operations through a centralized ERP + CRM workspace.
