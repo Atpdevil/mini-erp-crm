@@ -241,8 +241,6 @@ JWT_SECRET="your_long_random_secret"
 PORT=5000
 ```
 
-> Do not commit the `.env` file.
-
 ### 3. Create the PostgreSQL database
 
 Create a PostgreSQL database named:
